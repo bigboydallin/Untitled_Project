@@ -12,8 +12,8 @@
         height: 1080,
         backgroundColor: 0x000000,
         scene: {
-            preload: preload,
-            create: create
+            create: create,
+            update:update
         }
     };
 
@@ -23,8 +23,14 @@
 
     function create ()
     {
-        var star = this.add.Circle(900,500,300,0xffffff);
+        gameState.star = this.add.circle(900,500,300,0xffffff);
     }
+
+    function update() {
+        gameState.star.radius += 1;
+    }
+
+
     </script>
 
 </body>
