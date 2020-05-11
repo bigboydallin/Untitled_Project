@@ -24,9 +24,15 @@ class Currency {
     this._count = amount;
   }
 
+  get max(){
+    return this._max
+  }
+
   increment(amount) {
-    if (amount>0 && amount+this._count < this.max){
+    if (amount>0 && amount+this._count <= this._max){
       this._count += amount;
+    } else {
+      console.log("error incrementing")
     }
   }
 
