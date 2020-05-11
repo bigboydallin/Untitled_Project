@@ -1,10 +1,13 @@
 const gameState = {
-  score: 0
+  layers: 5,
+  currencys: [],
+  max: 100000,
+  displays: []
 }
 
 const config = {
   type: Phaser.AUTO,
-  width: 800,
+  width: 1000,
   height: 800,
   backgroundColor: '000000',
   scene: [GameScene]
