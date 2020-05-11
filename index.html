@@ -8,12 +8,12 @@
     <script>
     var config = {
         type: Phaser.AUTO,
-        width: 1920,
-        height: 1080,
+        width: 1000,
+        height: 800,
         backgroundColor: 0x000000,
         scene: {
             create: create,
-            update:update
+            update : update
         }
     };
 
@@ -23,11 +23,16 @@
 
     function create ()
     {
-        gameState.star = this.add.circle(900,500,300,0xffffff);
+      gameState.circle = this.add.circle(500,400, 10, 0xffffff);
+      console.log(gameState.circle);
+      console.log(typeof gameState.circle);
     }
 
-    function update() {
-        gameState.star.radius += 1;
+    function update(){
+
+      gameState.circle.radius += 1;
+      gameState.circle.radius %= 250;
+      console.log(gameState.circle.x);
     }
 
 
