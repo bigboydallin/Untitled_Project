@@ -17,10 +17,11 @@
         }
     };
 
-    var game = new Phaser.Game(config);
+    let game = new Phaser.Game(config);
 
-    var gameState = {};
+    let gameState = {};
 
+<<<<<<< HEAD
     function create ()
     {
       gameState.circle = this.add.circle(400,400, 400, 0xffffff);
@@ -31,6 +32,14 @@
     function update(){
       gameState.circle.radius -= 1;
       console.log(gameState.circle.x);
+=======
+    const create = () => {
+        gameState.star = this.add.circle(900,500,300,0xffffff);
+    }
+
+    const update () => {
+        gameState.star.radius += 1;
+>>>>>>> 0f137de8ccb11847d1ed3bf894d12c2fe8de737e
     }
 
 
