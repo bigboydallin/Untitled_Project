@@ -8,30 +8,27 @@
     <script>
     var config = {
         type: Phaser.AUTO,
-        width: 800,
-        height: 800,
+        width: 1920,
+        height: 1080,
         backgroundColor: 0x000000,
         scene: {
-            create: create,
-            update : update
-        }
+            create:create,
+            update:update
+        },
     };
 
     let game = new Phaser.Game(config);
 
     let gameState = {};
 
-    function create ()
-    {
-      gameState.circle = this.add.circle(400,400, 400, 0xffffff);
-      console.log(gameState.circle);
-      console.log(typeof gameState.circle);
-    }
+    const create = () => {
+        gameState.star = this.add.circle(900,500,300,0xffffff)
+    };
 
-    function update(){
-      gameState.circle.radius -= 1;
-      console.log(gameState.circle.x);
-    }
+    const update = () => {
+        gameState.star.radius += 1
+    };
+
 
 
     </script>
