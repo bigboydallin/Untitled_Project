@@ -1,10 +1,11 @@
 const gameState = {
   layers: 5,
   currencys: [],
-  max: 50000,
+  max: 10000,
   displays: [],
-  stars:[],
-  colors: [0xffffff,0xff0000,0x00ff00,0x0000ff,0xffff00]
+  stars: [],
+  colors: [0xffffff, 0xff0000, 0x00ff00, 0x0000ff, 0xffff00],
+  frame: 0
 }
 
 const config = {

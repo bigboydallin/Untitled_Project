@@ -6,6 +6,7 @@ class Currency {
     this._name = name;
     this._max = max;
     this._count = 0;
+    this._created = 0;
   }
 
   get name() {
@@ -13,7 +14,7 @@ class Currency {
   }
 
   get ratio() {
-    return this._count / this._max;
+    return this._created / this._max;
   }
 
   get count() {
@@ -22,23 +23,43 @@ class Currency {
 
   set count(amount) {
     this._count = amount;
+    this._created = amount;
   }
 
-  get max(){
+  get created(){
+    return this._created
+  }
+
+  get max() {
     return this._max
   }
 
   increment(amount) {
-    if (amount>0 && amount+this._count <= this._max){
+    if (amount > 0 && amount + this._count <= this._max) {
       this._count += amount;
-    } else {
-      console.log("error incrementing")
+      if (this._created+amount <= this._max){
+        this._created += amount;
+      }
+      return true;
     }
+    return false;
   }
 
   decrement(amount) {
-    if (amount>0 && amount-this._count >= 0){
+    if (amount > 0 && (this.count - amount) >= 0) {
       this._count -= amount;
+      return true;
     }
   }
+
+  spend(amount) {
+    if (amount > 0 && this._count - amount >= 0) {
+      this._count -= amount;
+      this._created -= amount;
+      gameState.currencys[0].increment(amount*2**this._name)
+      return true;
+    }
+    return false;
+  }
+
 }
