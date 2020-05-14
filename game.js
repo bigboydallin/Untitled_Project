@@ -5,7 +5,8 @@ const gameState = {
   displays: [],
   stars: [],
   colors: [0xffffff, 0xff0000, 0x00ff00, 0x0000ff, 0xffff00],
-  frame: 0
+  frame: 0,
+  converters: []
 }
 
 const config = {
