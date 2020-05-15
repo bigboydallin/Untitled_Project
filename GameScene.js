@@ -10,19 +10,19 @@ class GameScene extends Phaser.Scene {
   }
 
   create() {
-
+    gameState.max = 2**gameState.layers;
     for (let i = 0; i < gameState.layers; i++) {
       //create currencys
       gameState.currencys.push(new Currency(i, gameState.max / (2 ** i)));
       //create converters
-      gameState.converters.push(new Converter(i,3**i));
+      gameState.converters.push(new Converter(i,Math.floor(2.5**i)));
       //create text displays
       gameState.displays.push(this.add.text(20, i * 40, i + ": 0"));
       // create star visuals
-      let circle = this.add.ellipse(900, 450, 500,500,gameState.colors[i])
+      let circle = this.add.ellipse(900, 450, 500,500,0xffffff - ((i+1)*0x000fff))
       gameState.stars.push(new Star(circle));
     }
-    gameState.displays.push(this.add.text(20, 300,"Power:"));
+    gameState.displays.push(this.add.text(20, 800,"Power:"));
     gameState.currencys[0].count = gameState.max;
     gameState.power = new Power;
   }
@@ -43,6 +43,6 @@ class GameScene extends Phaser.Scene {
       gameState.stars[i].scaleStar(gameState.currencys[i]);
     }
     gameState.power.setPower();
-    gameState.displays[5].setText("Power :"+gameState.power.unallocated + " / " + gameState.power.max);
+    gameState.displays[gameState.layers].setText("Power :"+gameState.power.unallocated + " / " + gameState.power.max);
   }
 }

@@ -1,7 +1,7 @@
 class Power {
 
   constructor () {
-    this.scale = 1;
+    this.scale = 1.5;
     this.max = 0;
     this.allocated = 0;
     this.unallocated = 0;

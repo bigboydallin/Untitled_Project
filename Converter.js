@@ -22,8 +22,8 @@ class Converter {
   }
 
   convert(){
-    if (gameState.frame % this.rate === 0){
-      for (let i = 0;i<Math.floor(this.modifier*this.power);i++){
+    if (this.power > 0 && gameState.frame % Math.max(1,this.rate-this.power) === 0){
+      for (let i = 0;i<this.modifier*(Math.max(1,this.power-this.rate+1));i++){
         if (gameState.currencys[this.id].decrement(2)){
           gameState.currencys[this.id+1].increment(1);
         }
