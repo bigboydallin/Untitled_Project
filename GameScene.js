@@ -21,7 +21,6 @@ class GameScene extends Phaser.Scene {
       // create star visuals
       let circle = this.add.ellipse(900, 450, 500,500,0xffffff - ((i+1)*0x000fff))
       gameState.stars.push(new Star(circle));
-      gameState.stars.star()
     }
     gameState.displays.push(this.add.text(20, 800,"Power:"));
     gameState.currencys[0].count = gameState.max;
@@ -42,8 +41,8 @@ class GameScene extends Phaser.Scene {
       //update text dispays and star sizes
       gameState.displays[i].setText(i + ': ' + gameState.currencys[i].count + '/ ' + gameState.currencys[i].created + ' / ' + gameState.currencys[i].max + ' / ' +gameState.converters[i].power);
       gameState.stars[i].scaleStar(gameState.currencys[i]);
-      gameState.stars[i].star.x = Math.floor(game.canvas.width/2)
-      gameState.stars[i].star.y = Math.floor(game.canvas.height/2)
+      gameState.stars[i].star.x = Math.floor(game.canvas.width/2);
+      gameState.stars[i].star.y = Math.floor(game.canvas.height/2);
     }
     gameState.power.setPower();
     gameState.displays[gameState.layers].setText("Power :"+gameState.power.unallocated + " / " + gameState.power.max);
