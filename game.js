@@ -10,8 +10,11 @@ const gameState = {
 
 const config = {
   type: Phaser.AUTO,
-  width: 1800,
-  height: 900,
+  scale: {
+    mode: Phaser.Scale.RESIZE,
+    width: 1920,
+    height: 1080
+  },
   backgroundColor: '000000',
   scene: [GameScene]
 };

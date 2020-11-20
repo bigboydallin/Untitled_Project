@@ -10,7 +10,7 @@ class GameScene extends Phaser.Scene {
   }
 
   create() {
-    gameState.max = 2**gameState.layers;
+    gameState.max = 2**(gameState.layers-1);
     for (let i = 0; i < gameState.layers; i++) {
       //create currencys
       gameState.currencys.push(new Currency(i, gameState.max / (2 ** i)));
