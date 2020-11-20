@@ -42,8 +42,8 @@ class GameScene extends Phaser.Scene {
       //update text dispays and star sizes
       gameState.displays[i].setText(i + ': ' + gameState.currencys[i].count + '/ ' + gameState.currencys[i].created + ' / ' + gameState.currencys[i].max + ' / ' +gameState.converters[i].power);
       gameState.stars[i].scaleStar(gameState.currencys[i]);
-      gameState.stars[i].star.x = game.canvas.width/2
-      gameState.stars[i].star.y = game.canvas.height/2
+      gameState.stars[i].star.x = Math.floor(game.canvas.width/2)
+      gameState.stars[i].star.y = Math.floor(game.canvas.height/2)
     }
     gameState.power.setPower();
     gameState.displays[gameState.layers].setText("Power :"+gameState.power.unallocated + " / " + gameState.power.max);
